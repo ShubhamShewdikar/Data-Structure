@@ -1,18 +1,19 @@
 # Author :- Shubham Shewdikar
-class node:
+class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
 
-class linkedList:
+
+class LinkedList:
     def __init__(self):
         self.head = None
 
     def insertHead(self, data):
-        new_node = node(data)
+        new_node = Node(data)
         if self.head:
             new_node.next = self.head
-        
+
         self.head = new_node
 
     def insertTail(self, data):
@@ -22,7 +23,7 @@ class linkedList:
             temp = self.head
             while temp.next:
                 temp = temp.next
-            temp.next = node(data)
+            temp.next = Node(data)
 
     def deleteHead(self):
         if self.head:
@@ -46,7 +47,7 @@ class linkedList:
                 temp.next = None
             return temp
 
-    def setAtAnIndex(self,index,data):
+    def setAtAnIndex(self, index, data):
         current = self.head
 
         if current is None:
@@ -56,8 +57,8 @@ class linkedList:
                 raise IndexError("Index id out of range")
             current = current.next
         current.data = data
-            
-    def getAtAnIndex(self,index):
+
+    def getAtAnIndex(self, index):
         current = self.head
 
         if current is None:
@@ -71,7 +72,7 @@ class linkedList:
     def reverse(self):
         if self.head and self.head.next is None:
             print(self.head)
-        
+
         prev = None
         current = self.head
         while current is not None:
@@ -79,9 +80,7 @@ class linkedList:
             current.next = prev
             prev = current
             current = next_node
-        self.head = prev            
-
-
+        self.head = prev
 
     def displayList(self):
         if self.head is None:
@@ -92,7 +91,8 @@ class linkedList:
                 print(temp.data, end=" ")
                 temp = temp.next
 
-obj = linkedList()
+
+obj = LinkedList()
 obj.insertTail(1)
 # obj.displayList()
 obj.insertTail(2)
@@ -108,4 +108,3 @@ print("-------------")
 # obj.setAtAnIndex(0,60)
 obj.reverse()
 obj.displayList()
-

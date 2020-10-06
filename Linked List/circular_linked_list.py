@@ -1,16 +1,17 @@
 # Author :- Shubham Shewdikar
-class node():
+class Node:
     def __init__(self, data):
         self.next = None
         self.prev = None
         self.data = data
 
-class circularLinkList:
+
+class CircularLinkList:
     def __init__(self):
         self.head = None
-    
+
     def insertAtFirst(self, data):
-        new_node = node(data)
+        new_node = Node(data)
         temp = self.head
         new_node.next = self.head
 
@@ -20,7 +21,7 @@ class circularLinkList:
             temp.next = new_node
         else:
             new_node.next = new_node
-        
+
         self.head = new_node
 
     def deleteAtFirst(self, data):
@@ -32,7 +33,7 @@ class circularLinkList:
             temp = self.head
             while temp.next is not None:
                 temp = temp.next
-            
+
             temp.next = self.head.next
             self.head = temp.next
 
@@ -47,7 +48,8 @@ class circularLinkList:
                 if temp == self.head:
                     break
 
-obj = circularLinkList()
+
+obj = CircularLinkList()
 obj.insertAtFirst(2)
 obj.displayList()
 # obj.insertAtFirst(2)
